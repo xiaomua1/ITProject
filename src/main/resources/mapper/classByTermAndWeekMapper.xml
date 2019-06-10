@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.Dao.task.classByTermAndWeekDao">
+
+    <select id="classByTAndW" parameterType="String" resultType="schedule">
+        select * from schedule where term=#{term} AND week=#{week}
+    </select>
+
+    <insert id="addClass" parameterType="schedule">
+        insert ignore into schedule(teacher,course_name,exper_name,week,class_name,weekday,section)
+        VALUES
+        (#{schedule.teacher}, #{schedule.course_name}, #{schedule.exper_name}, #{schedule.week}, #{schedule.class_name}, #{schedule.weekday}, #{schedule.section})
+    </insert>
+
+</mapper>
